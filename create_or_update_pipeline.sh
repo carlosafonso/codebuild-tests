@@ -7,6 +7,7 @@ if [ $? -ne 0 ]; then
 	aws cloudformation create-stack \
 		--stack-name=${CAFONSOP_PIPELINE_STACK} \
 		--template-body=file://$PWD/pipeline.yaml \
+		--capabilities=CAPABILITY_IAM \
 		--parameters='[
 			{"ParameterKey": "GitHubUser", "ParameterValue": "$CAFONSOP_GITHUB_USER"},
 			{"ParameterKey": "GitHubRepo", "ParameterValue": "$CAFONSOP_GITHUB_REPO"},
