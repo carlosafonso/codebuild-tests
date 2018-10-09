@@ -1,6 +1,27 @@
 ---
 AWSTemplateFormatVersion: 2010-09-09
 
+Parameters:
+
+  GitHubUser:
+    Type: String
+
+  GitHubRepo:
+    Type: String
+
+  GitHubBranch:
+    Type: String
+
+  GitHubToken:
+    Type: String
+    NoEcho: true
+
+  Cluster:
+    Type: String
+
+  Service:
+    Type: String
+
 Resources:
   Repository:
     Type: AWS::ECR::Repository
