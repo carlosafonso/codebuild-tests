@@ -20,7 +20,16 @@ else
 	echo "Pipeline exists, so it will be updated"
 	aws cloudformation update-stack \
 		--stack-name=${CAFONSOP_PIPELINE_STACK} \
-		--template-body=file://$PWD/pipeline.yaml
+		--template-body=file://$PWD/pipeline.yaml \
+		--capabilities=CAPABILITY_IAM \
+		--parameters='[
+			{"ParameterKey": "GitHubUser", "ParameterValue": "$CAFONSOP_GITHUB_USER"},
+			{"ParameterKey": "GitHubRepo", "ParameterValue": "$CAFONSOP_GITHUB_REPO"},
+			{"ParameterKey": "GitHubBranch", "ParameterValue": "$CAFONSOP_PIPELINE_STACK"},
+			{"ParameterKey": "GitHubToken", "ParameterValue": "$CAFONSOP_GITHUB_TOKEN"},
+			{"ParameterKey": "Cluster", "ParameterValue": "$CAFONSOP_ECS_CLUSTER"},
+			{"ParameterKey": "Service", "ParameterValue": "$CAFONSOP_ECS_SERVICE"}
+		]'
 fi
 
 echo "All done"
