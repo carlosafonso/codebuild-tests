@@ -25,6 +25,7 @@
                         fclose($myfile);
                 ?>
                 <p>This is a new version, belonging to a feature branch.</p>
+                <p>And this paragraph was added in feature/my-feature-123.</p>
             </div>
         </div>
 
