@@ -24,7 +24,7 @@
                         echo fread($myfile,filesize("/var/www/my-vol/date"));
                         fclose($myfile);
                 ?>
-
+                <p>This is a new version, belonging to a feature branch.</p>
             </div>
         </div>
 
