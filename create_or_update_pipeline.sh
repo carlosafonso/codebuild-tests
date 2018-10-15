@@ -2,7 +2,6 @@
 
 aws codepipeline get-pipeline --name=$CAFONSOP_PIPELINE_STACK > /dev/null
 
-echo
 if [ $? -ne 0 ]; then
 	echo "Pipeline does not exist, so it will be created now"
 	aws cloudformation create-stack \
