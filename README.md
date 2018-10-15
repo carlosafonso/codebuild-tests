@@ -1,0 +1,3 @@
+# codebuild-tests
+
+![build status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiamczczUzTnRJU2hXdzlpZERRRGJoMmpPRmlvRVc3dVkyaGhlQzRxeU42a2k1cFE4KzNUWXJ0YzBBZWMyaEpkcXBWemdGcEF5YTdJV1p0WjlsUndFRkQ4PSIsIml2UGFyYW1ldGVyU3BlYyI6Ijdibm82T0VZM05BREVYT2MiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
