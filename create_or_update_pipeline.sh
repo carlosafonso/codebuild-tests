@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Creating/Updating pipeline..."
+
 aws codepipeline get-pipeline --name=$CAFONSOP_PIPELINE_STACK > /dev/null
 
 if [ $? -ne 0 ]; then
@@ -17,6 +19,8 @@ if [ $? -ne 0 ]; then
 			{\"ParameterKey\": \"Cluster\", \"ParameterValue\": \"$CAFONSOP_ECS_CLUSTER\"},
 			{\"ParameterKey\": \"Service\", \"ParameterValue\": \"$CAFONSOP_ECS_SERVICE\"}
 		]"
+
+	echo "Pipeline creation initiated, will be automatically run upon completion"
 else
 	echo "Pipeline exists, so it will be updated"
 	aws cloudformation update-stack \
@@ -32,6 +36,12 @@ else
 			{\"ParameterKey\": \"Cluster\", \"ParameterValue\": \"$CAFONSOP_ECS_CLUSTER\"},
 			{\"ParameterKey\": \"Service\", \"ParameterValue\": \"$CAFONSOP_ECS_SERVICE\"}
 		]"
+
+	echo "Waiting for update to pipeline stack to complete"
+	aws cloudformation wait stack-update-complete --stack-name=$CAFONSOP_PIPELINE_STACK
+
+	echo "Stack updated, running pipeline"
+	aws codepipeline start-pipeline-execution --name=$CAFONSOP_PIPELINE_STACK
 fi
 
 echo "All done"
