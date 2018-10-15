@@ -3,6 +3,9 @@ AWSTemplateFormatVersion: 2010-09-09
 
 Parameters:
 
+  PipelineName:
+    Type: String
+
   GitHubUser:
     Type: String
 
@@ -147,6 +150,7 @@ Resources:
   Pipeline:
     Type: AWS::CodePipeline::Pipeline
     Properties:
+      Name: !Ref PipelineName
       RoleArn: !GetAtt CodePipelineServiceRole.Arn
       ArtifactStore:
         Type: S3

@@ -9,6 +9,7 @@ if [ $? -ne 0 ]; then
 		--template-body=file://$PWD/pipeline.yaml \
 		--capabilities=CAPABILITY_IAM \
 		--parameters='[
+			{"ParameterKey": "PipelineName", "ParameterValue": "${CAFONSOP_PIPELINE_STACK}"},
 			{"ParameterKey": "GitHubUser", "ParameterValue": "${CAFONSOP_GITHUB_USER}"},
 			{"ParameterKey": "GitHubRepo", "ParameterValue": "${CAFONSOP_GITHUB_REPO}"},
 			{"ParameterKey": "GitHubBranch", "ParameterValue": "${CAFONSOP_PIPELINE_STACK}"},
@@ -23,6 +24,7 @@ else
 		--template-body=file://$PWD/pipeline.yaml \
 		--capabilities=CAPABILITY_IAM \
 		--parameters='[
+			{"ParameterKey": "PipelineName", "ParameterValue": "${CAFONSOP_PIPELINE_STACK}"},
 			{"ParameterKey": "GitHubUser", "ParameterValue": "${CAFONSOP_GITHUB_USER}"},
 			{"ParameterKey": "GitHubRepo", "ParameterValue": "${CAFONSOP_GITHUB_REPO}"},
 			{"ParameterKey": "GitHubBranch", "ParameterValue": "${CAFONSOP_PIPELINE_STACK}"},
