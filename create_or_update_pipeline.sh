@@ -9,12 +9,12 @@ if [ $? -ne 0 ]; then
 		--template-body=file://$PWD/pipeline.yaml \
 		--capabilities=CAPABILITY_IAM \
 		--parameters='[
-			{"ParameterKey": "GitHubUser", "ParameterValue": "$CAFONSOP_GITHUB_USER"},
-			{"ParameterKey": "GitHubRepo", "ParameterValue": "$CAFONSOP_GITHUB_REPO"},
-			{"ParameterKey": "GitHubBranch", "ParameterValue": "$CAFONSOP_PIPELINE_STACK"},
-			{"ParameterKey": "GitHubToken", "ParameterValue": "$CAFONSOP_GITHUB_TOKEN"},
-			{"ParameterKey": "Cluster", "ParameterValue": "$CAFONSOP_ECS_CLUSTER"},
-			{"ParameterKey": "Service", "ParameterValue": "$CAFONSOP_ECS_SERVICE"}
+			{"ParameterKey": "GitHubUser", "ParameterValue": "${CAFONSOP_GITHUB_USER}"},
+			{"ParameterKey": "GitHubRepo", "ParameterValue": "${CAFONSOP_GITHUB_REPO}"},
+			{"ParameterKey": "GitHubBranch", "ParameterValue": "${CAFONSOP_PIPELINE_STACK}"},
+			{"ParameterKey": "GitHubToken", "ParameterValue": "${CAFONSOP_GITHUB_TOKEN}"},
+			{"ParameterKey": "Cluster", "ParameterValue": "${CAFONSOP_ECS_CLUSTER}"},
+			{"ParameterKey": "Service", "ParameterValue": "${CAFONSOP_ECS_SERVICE}"}
 		]'
 else
 	echo "Pipeline exists, so it will be updated"
@@ -23,12 +23,12 @@ else
 		--template-body=file://$PWD/pipeline.yaml \
 		--capabilities=CAPABILITY_IAM \
 		--parameters='[
-			{"ParameterKey": "GitHubUser", "ParameterValue": "$CAFONSOP_GITHUB_USER"},
-			{"ParameterKey": "GitHubRepo", "ParameterValue": "$CAFONSOP_GITHUB_REPO"},
-			{"ParameterKey": "GitHubBranch", "ParameterValue": "$CAFONSOP_PIPELINE_STACK"},
-			{"ParameterKey": "GitHubToken", "ParameterValue": "$CAFONSOP_GITHUB_TOKEN"},
-			{"ParameterKey": "Cluster", "ParameterValue": "$CAFONSOP_ECS_CLUSTER"},
-			{"ParameterKey": "Service", "ParameterValue": "$CAFONSOP_ECS_SERVICE"}
+			{"ParameterKey": "GitHubUser", "ParameterValue": "${CAFONSOP_GITHUB_USER}"},
+			{"ParameterKey": "GitHubRepo", "ParameterValue": "${CAFONSOP_GITHUB_REPO}"},
+			{"ParameterKey": "GitHubBranch", "ParameterValue": "${CAFONSOP_PIPELINE_STACK}"},
+			{"ParameterKey": "GitHubToken", "ParameterValue": "${CAFONSOP_GITHUB_TOKEN}"},
+			{"ParameterKey": "Cluster", "ParameterValue": "${CAFONSOP_ECS_CLUSTER}"},
+			{"ParameterKey": "Service", "ParameterValue": "${CAFONSOP_ECS_SERVICE}"}
 		]'
 fi
 
